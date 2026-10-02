@@ -56,10 +56,14 @@ namespace ITEszkoznyilvanitoRendszer
         {
             if (db >= RaktarKeszlet) 
             {
-                RaktarKeszlet = RaktarKeszlet - db;
+                RaktarKeszlet -= db;
                 return true;
             }
-            else { return false; }
+            else 
+            {
+                Console.WriteLine("Nincs elég készlet!");
+                return false;
+            }
         }
     }
 }
