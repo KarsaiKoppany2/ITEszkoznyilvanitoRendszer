@@ -9,8 +9,8 @@ namespace ITEszkoznyilvanitoRendszer
         private int beszerzesiAr;
         private int raktarKeszlet;
         private static int osszesLetezoEszkoz = 0;
-        public string Cikkszam;
-        public string Nev;
+        public string Cikkszam { get; set; }
+        public string Nev { get; set; }
         public int BeszerzesiAr 
         {
             get
@@ -20,6 +20,7 @@ namespace ITEszkoznyilvanitoRendszer
             set
             {
                 if (value < 0) beszerzesiAr = 0;
+                else beszerzesiAr = value;
             }
         }
         public int RaktarKeszlet 
@@ -31,6 +32,7 @@ namespace ITEszkoznyilvanitoRendszer
             set
             {
                 if (value < 0) raktarKeszlet = 0;
+                else raktarKeszlet = value;
             }
         }
         public static int OsszesLetezoEszkoz { get { return osszesLetezoEszkoz; } }
@@ -39,13 +41,10 @@ namespace ITEszkoznyilvanitoRendszer
             Cikkszam = cikkszam;
             Nev = nev;
             BeszerzesiAr = beszerzesiAr;
-            RaktarKeszlet = 0;
+            raktarKeszlet = 0;
         }
-        public Eszkoz(string cikkszam, string nev, int beszerzesiAr, int raktarKeszlet)
+        public Eszkoz(string cikkszam, string nev, int beszerzesiAr, int raktarKeszlet) : this(cikkszam, nev, beszerzesiAr)
         {
-            Cikkszam = cikkszam;
-            Nev = nev;
-            BeszerzesiAr = beszerzesiAr;
             RaktarKeszlet = raktarKeszlet;
             osszesLetezoEszkoz++;
         }
